@@ -84,7 +84,7 @@ export default function CollaborationHero() {
 
   return (
     // <div className="w-full py-12 md:py-16 bg-gray-50 rounded-t-parascaporderRadius">
-    <div className="container px-4 md:px-6 mx-auto flex flex-col md:flex-row gap-10 items-center">
+    <div className="container px-4 md:px-6 mx-auto md:flex flex-col md:flex-row gap-10 items-center">
       <div className="flex-1 flex flex-col justify-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-600">
           WE PARTNER WITH PEOPLE, NOT JUST COMPANIES
