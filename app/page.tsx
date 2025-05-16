@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,283 +8,172 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import ServiceCard from "@/components/service-card";
 import { Check } from "lucide-react";
 
-import Navbar from "@/components/navbar";
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 export default function Home() {
-  const mainRef = useRef<HTMLDivElement>(null);
-  const imgLeftRef = useRef<HTMLDivElement>(null);
-  const imgRightRef = useRef<HTMLDivElement>(null);
-  const imgCenterRef = useRef<HTMLDivElement>(null);
-  const sectionTwoRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLDivElement>(null);
+  const mainRef = useRef(null);
+  const imgLeftRef = useRef(null);
+  const imgRightRef = useRef(null);
+  const imgCenterRef = useRef(null);
+  const sectionTwoRef = useRef(null);
+  const titleRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // useEffect(() => {
-  //   const sectionTwo = sectionTwoRef.current;
-
-  //   if (sectionTwo) {
-  //     ScrollTrigger.create({
-  //       trigger: sectionTwo,
-  //       start: "top 80%",
-  //       end: "bottom top",
-  //       onEnter: (self) => {
-  //         if (self.direction === 1) {
-  //           gsap.to(window, {
-  //             duration: 1.4,
-  //             scrollTo: { y: window.innerHeight * 1.45 },
-  //             ease: "power2.out",
-  //           });
-  //         }
-  //       },
-  //     });
-
-  //     // Center image scroll animation
-  //     gsap.to(imgCenterRef.current, {
-  //       scrollTrigger: {
-  //         trigger: ".two",
-  //         start: "0% 90%",
-  //         end: "50% 30%",
-  //         scrub: true,
-  //         onUpdate: (self) => {
-  //           const progress = self.progress;
-  //           if (progress > 0.2 && progress < 0.9) {
-  //             gsap.to(titleRef.current, {
-  //               opacity: 1,
-  //               y: 0,
-  //               duration: 0.6,
-  //               ease: "power2.out",
-  //             });
-  //           } else {
-  //             gsap.to(titleRef.current, {
-  //               opacity: 0,
-  //               y: 20,
-  //               duration: 0.6,
-  //               ease: "power2.out",
-  //             });
-  //           }
-  //         },
-  //       },
-  //       top: "150%",
-  //       left: "50%",
-  //     });
-
-  //     // Left image scroll animation
-  //     gsap.to(imgLeftRef.current, {
-  //       scrollTrigger: {
-  //         trigger: imgCenterRef.current,
-  //         start: "top 40%",
-  //         end: "top 3%",
-  //         scrub: 1.1,
-  //       },
-  //       xPercent: -250,
-  //       opacity: 0,
-  //       ease: "power1.inOut",
-  //     });
-
-  //     // Right image scroll animation
-  //     gsap.to(imgRightRef.current, {
-  //       scrollTrigger: {
-  //         trigger: imgCenterRef.current,
-  //         start: "top 40%",
-  //         end: "top 3%",
-  //         scrub: 1.1,
-  //       },
-  //       xPercent: 250,
-  //       opacity: 0,
-  //       ease: "power1.inOut",
-  //     });
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   const sectionTwo = sectionTwoRef.current;
-  //   const titleEl = titleRef.current;
-
-  //   if (!sectionTwo || !titleEl) return;
-
-  //   ScrollTrigger.create({
-  //     trigger: sectionTwo,
-  //     start: "top 80%",
-  //     end: "bottom top",
-  //     onEnter: (self) => {
-  //       if (self.direction === 1) {
-  //         gsap.to(window, {
-  //           duration: 1.4,
-  //           scrollTo: { y: window.innerHeight * 1.45 },
-  //           ease: "power2.out",
-  //         });
-  //       }
-  //     },
-  //   });
-
-  //   // Track central image scroll progress
-  //   gsap.to(imgCenterRef.current, {
-  //     scrollTrigger: {
-  //       trigger: ".two",
-  //       start: "0% 90%",
-  //       end: "50% 30%",
-  //       scrub: true,
-  //       onUpdate: (self) => {
-  //         const progress = self.progress;
-
-  //         if (progress > 0.9) {
-  //           gsap.to(titleEl, {
-  //             opacity: 1,
-  //             y: 0,
-  //             duration: 1,
-  //             ease: "power3.out",
-  //           });
-  //         } else {
-  //           gsap.to(titleEl, {
-  //             opacity: 0,
-  //             y: 10,
-  //             duration: 1,
-  //             ease: "power3.out",
-  //           });
-  //         }
-  //       },
-  //     },
-  //     top: "150%",
-  //     left: "50%",
-  //   });
-
-  //   gsap.to(imgLeftRef.current, {
-  //     scrollTrigger: {
-  //       trigger: imgCenterRef.current,
-  //       start: "top 40%",
-  //       end: "top 3%",
-  //       scrub: 1.1,
-  //     },
-  //     xPercent: -250,
-  //     opacity: 0,
-  //     ease: "power1.inOut",
-  //   });
-
-  //   gsap.to(imgRightRef.current, {
-  //     scrollTrigger: {
-  //       trigger: imgCenterRef.current,
-  //       start: "top 40%",
-  //       end: "top 3%",
-  //       scrub: 1.1,
-  //     },
-  //     xPercent: 250,
-  //     opacity: 0,
-  //     ease: "power1.inOut",
-  //   });
-  // }, []);
-
+  // Check if device is mobile with a proper setup
   useEffect(() => {
-    const sectionTwo = sectionTwoRef.current;
+    const checkIsMobile = () => {
+      const mobileCheck = window.innerWidth < 768;
+      setIsMobile(mobileCheck);
+      console.log("Mobile detection:", mobileCheck);
+    };
+
+    // Set initial value
+    checkIsMobile();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", checkIsMobile);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
+
+  // Set up animations after checking device type and after components are mounted
+  useEffect(() => {
+    const sectionTwo: any = sectionTwoRef.current;
     const titleEl = titleRef.current;
+    const leftImg = imgLeftRef.current;
+    const rightImg = imgRightRef.current;
+    const centerImg = imgCenterRef.current;
 
-    // gsap.from(".hero-text", {
-    //   opacity: 0,
-    //   y: 50,
-    //   duration: 1,
-    //   stagger: 0.2,
-    //   ease: "power3.out",
-    //   delay: 0.3,
-    // });
+    console.log("Animation setup - isMobile:", isMobile);
 
-    // gsap.from(".service-card", {
-    //   opacity: 0,
-    //   y: 50,
-    //   duration: 0.8,
-    //   stagger: 0.15,
-    //   ease: "power2.out",
-    //   scrollTrigger: {
-    //     trigger: ".services-section",
-    //     start: "top 80%",
-    //   },
-    // });
-
-    if (!sectionTwo || !titleEl) return;
-    const sectionEnd = sectionTwo.offsetTop + sectionTwo.offsetHeight;
-
-    ScrollTrigger.create({
-      trigger: sectionTwo,
-      start: "top 80%",
-      end: "bottom top",
-      onEnter: (self) => {
-        if (self.direction === 1) {
-          gsap.to(window, {
-            duration: 1.4,
-            // scrollTo: { y: window.innerHeight * 1.45 },
-            scrollTo: {
-              y: sectionEnd - window.innerHeight + 20, // Keep section fully in view
-              autoKill: false,
-            },
-            ease: "power2.out",
-          });
-        }
-      },
-    });
-
-    // Center image animation
-    gsap.to(imgCenterRef.current, {
-      scrollTrigger: {
-        trigger: ".two",
-        start: "0% 90%",
-        end: "50% 30%",
-        scrub: true,
-      },
-      top: "150%",
-      left: "50%",
-    });
-
-    // Left image animation
-    gsap.to(imgLeftRef.current, {
-      scrollTrigger: {
-        trigger: imgCenterRef.current,
-        start: "top 40%",
-        end: "top 3%",
-        scrub: 1.1,
-      },
-      xPercent: -250,
+    // Hero section animations - run on all devices
+    gsap.from(".hero-text", {
       opacity: 0,
-      ease: "power1.inOut",
+      y: 50,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out",
+      delay: 0.3,
     });
 
-    // Right image animation
-    gsap.to(imgRightRef.current, {
-      scrollTrigger: {
-        trigger: imgCenterRef.current,
-        start: "top 40%",
-        end: "top 3%",
-        scrub: 1.1,
-      },
-      xPercent: 250,
-      opacity: 0,
-      ease: "power1.inOut",
-    });
+    // Only run desktop animations if NOT on mobile
+    if (
+      !isMobile &&
+      sectionTwo &&
+      titleEl &&
+      leftImg &&
+      rightImg &&
+      centerImg
+    ) {
+      console.log("Running desktop animations");
 
-    gsap.fromTo(
-      titleEl,
-      { opacity: 0, y: 0 },
-      {
-        opacity: 1,
-        y: 0,
+      // Service card animations
+      gsap.from(".service-card", {
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out",
         scrollTrigger: {
-          trigger: imgCenterRef.current,
-          start: "top 15%",
-          end: "top 3%",
+          trigger: ".services-section",
+          start: "top 80%",
+        },
+      });
+
+      // Section two snap scrolling
+      const sectionEnd = sectionTwo.offsetTop + sectionTwo.offsetHeight;
+
+      ScrollTrigger.create({
+        trigger: sectionTwo,
+        start: "top 80%",
+        end: "bottom top",
+        onEnter: (self) => {
+          if (self.direction === 1) {
+            gsap.to(window, {
+              duration: 1.4,
+              scrollTo: {
+                y: sectionEnd - window.innerHeight + 20,
+                autoKill: false,
+              },
+              ease: "power2.out",
+            });
+          }
+        },
+      });
+
+      // Center image animation
+      gsap.to(centerImg, {
+        scrollTrigger: {
+          trigger: ".two",
+          start: "0% 90%",
+          end: "50% 30%",
           scrub: true,
         },
-      }
-    );
-  }, []);
+        top: "150%",
+        left: "50%",
+      });
+
+      // Left image animation
+      gsap.to(leftImg, {
+        scrollTrigger: {
+          trigger: centerImg,
+          start: "top 40%",
+          end: "top 3%",
+          scrub: 1.1,
+        },
+        xPercent: -250,
+        opacity: 0,
+        ease: "power1.inOut",
+      });
+
+      // Right image animation
+      gsap.to(rightImg, {
+        scrollTrigger: {
+          trigger: centerImg,
+          start: "top 40%",
+          end: "top 3%",
+          scrub: 1.1,
+        },
+        xPercent: 250,
+        opacity: 0,
+        ease: "power1.inOut",
+      });
+
+      // Title animation
+      gsap.fromTo(
+        titleEl,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          scrollTrigger: {
+            trigger: centerImg,
+            start: "top 15%",
+            end: "top 3%",
+            scrub: true,
+          },
+        }
+      );
+    }
+
+    // Clean up all ScrollTrigger instances when component unmounts
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, [isMobile]); // Re-run when isMobile changes
   return (
     <main
       ref={mainRef}
       className="overflow-x-hidden relative text-parascap-green"
     >
       {/* Hero Section */}
-      <div className="one relative flex items-center justify-center w-full h-screen overflow-visible hero-text">
-        <div className="container mx-auto px-4 text-center  z-10 mt-[-150px]">
+      <div className="one relative min-h-screen w-full overflow-hidden flex items-center justify-center py-16">
+        <div className="container mx-auto px-4 text-center z-10 relative mt-[-150px]">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
             Vision to Valuation: Your Growth Partners
           </h1>
-          <div className="bg-parascap-green/10 backdrop-blur-sm py-3 px-6 rounded-lg inline-block mb-6 hero-text">
+          <div className="bg-parascap-green/10 backdrop-blur-sm py-3 px-6 rounded-lg inline-block mb-6">
             <h2 className="text-xl md:text-2xl font-medium">
               Navigating Capital with Confidence
             </h2>
@@ -293,19 +181,19 @@ export default function Home() {
           <p className="max-w-3xl mx-auto text-lg mb-8 text-gray-700">
             At Parascap Ventures we empower growth potential companies to scale
             into market leaders. Backed by sharp financial acumen and bold
-            strategic thinking, we craft tailored solutions in IPO
-            advisory,private equity,strategic financial advisory and investor
-            relations, to unlock value and drive meaningful outcomes.
+            strategic thinking, we craft tailored solutions in IPO advisory,
+            private equity, strategic financial advisory and investor relations,
+            to unlock value and drive meaningful outcomes.
           </p>
           <div className="flex flex-col gap-4 justify-center items-center mb-12">
             <Link
-              href="#next-move"
-              className="w-fit bg-transparent border-2 border-parascap-green  font-bold px-4 py-2 rounded-lg hover:bg-parascap-green/10 transition-all"
+              href="#"
+              className="w-fit bg-transparent border-2 border-parascap-green font-bold px-4 py-2 rounded-lg hover:bg-parascap-green/10 transition-all text-sm md:text-base text-center"
             >
               FROM BOARDROOM TO BELLRING, YOUR NEXT MOVE STARTS NOW
             </Link>
             <Link
-              href="#consultation"
+              href="/contact"
               className="w-fit bg-parascap-green text-white font-bold px-4 py-2 rounded-lg hover:bg-parascap-green/90 transition-all"
             >
               BOOK YOUR CONSULTATION
@@ -313,10 +201,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Wrapped Images */}
+        {/* Responsive Images - Hidden on small screens, visible and positioned on larger screens */}
         <div
+          className="hidden md:block absolute top-[65%] left-[5vw] w-[20%] max-w-[300px] z-40"
           ref={imgLeftRef}
-          className="absolute top-[65%] left-[5vw] w-[20%] max-w-[300px] z-40 "
         >
           <Image
             src="https://qonto.com/blog/images/asset/26136/image/6ec44f51e9d280e5e6966b55d8ac008c.png"
@@ -328,8 +216,8 @@ export default function Home() {
         </div>
 
         <div
+          className="hidden md:block absolute top-[80%] left-1/2 w-[40%] max-w-[300px] z-40 -translate-x-1/2"
           ref={imgCenterRef}
-          className="absolute top-[80%] left-1/2 w-[40%] max-w-[300px] z-40 -translate-x-1/2"
         >
           <Image
             src="https://img.freepik.com/free-photo/glowing-lines-human-heart-3d-illustration-generative-ai_188544-19759.jpg"
@@ -341,8 +229,8 @@ export default function Home() {
         </div>
 
         <div
+          className="hidden md:block absolute top-[65%] right-[5vw] w-[30%] max-w-[400px] z-40"
           ref={imgRightRef}
-          className="absolute top-[65%] right-[5vw] w-[30%] max-w-[400px] z-40"
         >
           <Image
             src="https://qonto.com/blog/images/asset/12437/image/a62d180182ac76020aa4ec98573b042a.png"
@@ -357,11 +245,12 @@ export default function Home() {
       {/* Section Two */}
       <div
         ref={sectionTwoRef}
-        className="two relative z-30 flex w-full h-screen bg-white"
+        className="two relative z-30 w-full h-screen bg-white py-12"
       >
-        <div className="w-full flex flex-row h-full">
+        <div className="container mx-auto px-4 h-full">
           {/* Animated Floating Title */}
-          <div className="absolute top-40 w-full flex justify-center pointer-events-none">
+
+          <div className="relative top-40 w-full  md:justify-center pointer-events-none hidden md:flex">
             <div
               ref={titleRef}
               className="text-3xl  text-black font-bold  opacity-0 translate-y-4 transition-all"
@@ -370,46 +259,59 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="left-content w-1/3 flex flex-col justify-center px-8 mt-20">
-            <h2 className="text-3xl font-bold  mb-6">
-              GET THE PERFECT VALUATION IN JUST 10 MINUTES OR LESS!
-            </h2>
-            <p className="text-gray-700 mb-6">
-              Discover your company's true value...
-            </p>
-            <Link
-              href="#valuation"
-              className="bg-parascap-green text-white font-bold py-3 px-6 rounded-lg hover:bg-parascap-green/90 transition-all inline-block w-fit"
-            >
-              Get Free Valuation
-            </Link>
-          </div>
-          <div className="w-1/3 relative mt-10 flex items-center justify-center ">
-            <div className="bg-gray-50 p-8 rounded-xl shadow-md max-w-md  h-80 w-full text-center">
-              <p className="text-gray-700 mb-6">
-                Scan the QR code to instantly access...
+          <div className="flex flex-col md:flex-row gap-8 md:pt-48">
+            <div className="w-full md:w-1/3 flex flex-col justify-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center md:text-left">
+                GET THE PERFECT VALUATION IN JUST 10 MINUTES OR LESS!
+              </h2>
+              <p className="text-gray-700 mb-6 text-center md:text-left">
+                Discover your company's true value...
               </p>
+              <div className="flex justify-center md:justify-start">
+                <Link
+                  href="#valuation"
+                  className="bg-parascap-green text-white font-bold py-3 px-6 rounded-lg hover:bg-parascap-green/90 transition-all inline-block w-fit"
+                >
+                  Get Free Valuation
+                </Link>
+              </div>
             </div>
-          </div>
-          <div className="right-content w-1/3 flex items-center justify-center mt-10">
-            <div className="bg-gray-50 p-8 rounded-xl shadow-md max-w-md">
-              <h3 className="text-2xl font-bold  mb-4">
-                Is Your Business Ready?
-              </h3>
-              <p className="text-gray-700 mb-6 text-center">
-                Scan the QR code to instantly access...
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-24 h-24 bg-gray-200 flex items-center justify-center rounded-lg">
-                  <span className="text-sm text-gray-500">QR Code</span>
+
+            <div className="w-full md:w-1/3 flex items-center justify-center mb-8 md:mb-0">
+              <div className="bg-gray-50 p-8 rounded-xl shadow-md w-full max-w-md h-auto md:h-80 text-center">
+                <p className="text-gray-700 mb-6">
+                  Scan the QR code to instantly access...
+                </p>
+
+                <Image
+                  src="https://img.freepik.com/free-photo/glowing-lines-human-heart-3d-illustration-generative-ai_188544-19759.jpg"
+                  alt="Center Image - Glowing Heart"
+                  width={300}
+                  height={300}
+                  className="object-contain rounded-lg shadow-lg md:hidden"
+                />
+              </div>
+            </div>
+
+            <div className="w-full md:w-1/3  items-center justify-center hidden md:flex">
+              <div className="bg-gray-50 p-8 rounded-xl shadow-md w-full max-w-md">
+                <h3 className="text-xl md:text-2xl font-bold mb-4 text-center">
+                  Is Your Business Ready?
+                </h3>
+                <p className="text-gray-700 mb-6 text-center">
+                  Scan the QR code to instantly access...
+                </p>
+                <div className="flex items-center justify-center gap-4">
+                  <div className="w-24 h-24 bg-gray-200 flex items-center justify-center rounded-lg">
+                    <span className="text-sm text-gray-500">QR Code</span>
+                  </div>
+                  <p className="text-sm text-gray-500">Scan to access...</p>
                 </div>
-                <p className="text-sm text-gray-500">Scan to access...</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
       <section className="w-full pt-12 pb-6 md:pt-24 md:pb-18 bg-[#0a2e1f] text-white rounded-t-parascaporderRadius ">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center space-y-4 text-center mb-12">

@@ -17,7 +17,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner"; // Using Sonner for toast notifications
+
+import { toast } from "sonner";
 
 // Define Zod schema for validation
 const contactFormSchema = z.object({
@@ -45,32 +46,29 @@ export default function ContactPage() {
   async function onSubmit(values: z.infer<typeof contactFormSchema>) {
     console.log("Contact Page Form Data:", values);
     try {
-      // ** TODO: Replace with your actual API endpoint call **
-      // Example: Send data to a serverless function or API route
-      // const response = await fetch('/api/contact', { // Example API route
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(values),
-      // });
-      // if (!response.ok) {
-      //    const errorData = await response.json();
-      //    throw new Error(errorData.message || 'Failed to send message');
-      // }
+      const response = await fetch("/api/consult", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
 
-      // Simulate success for demo purposes
-      await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate network delay
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
 
       toast.success("Message Sent!", {
         description: "Thank you for contacting us. We'll be in touch shortly.",
-        duration: 5000, // Show for 5 seconds
       });
-      form.reset(); // Reset form fields on successful submission
+
+      form.reset(); // Reset form fields
     } catch (error) {
       console.error("Form submission error:", error);
       toast.error("Submission Failed", {
         description:
           error instanceof Error
-            ? error.message
+            ? "Something went wrong. "
             : "Something went wrong. Please try again.",
       });
     }
@@ -101,14 +99,14 @@ export default function ContactPage() {
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
             {/* Contact Info Column */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-parascap-darkGray dark:text-gray-50">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-parascap-green">
                 Get in Touch
               </h2>
-              <p className="text-gray-500 md:text-xl dark:text-gray-400">
+              <p className="text-parascap-green md:text-xl">
                 Reach out via the form or use our contact details below. We look
                 forward to hearing from you.
               </p>
-              <div className="space-y-4 text-parascap-darkGray dark:text-gray-300">
+              <div className="space-y-4 text-parascap-green ">
                 {/* Email */}
                 <div className="flex items-start gap-3">
                   <Mail className="h-5 w-5 mt-1 text-parascap-green shrink-0" />
@@ -134,8 +132,7 @@ export default function ContactPage() {
                       className="hover:underline hover:text-parascap-green"
                     >
                       +91 123 456 7890
-                    </a>{" "}
-                    {/* Replace number */}
+                    </a>
                   </div>
                 </div>
                 {/* Address */}
@@ -144,10 +141,7 @@ export default function ContactPage() {
                   <div>
                     <span className="font-medium">Address</span>
                     <br />
-                    <span>
-                      123 Business Street, New Delhi, 110001, India
-                    </span>{" "}
-                    {/* Replace address */}
+                    <span>123 Business Street, New Delhi, 110001, India</span>
                   </div>
                 </div>
                 {/* LinkedIn */}
@@ -157,7 +151,7 @@ export default function ContactPage() {
                     <span className="font-medium">LinkedIn</span>
                     <br />
                     <a
-                      href="https://linkedin.com/company/parascap-ventures" // Replace with actual URL
+                      href="https://linkedin.com/company/parascap-ventures"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:underline hover:text-parascap-green"
@@ -170,8 +164,8 @@ export default function ContactPage() {
             </div>
 
             {/* Form Column */}
-            <div className="space-y-4">
-              <h3 className="text-2xl font-semibold text-parascap-darkGray dark:text-gray-50 mb-4">
+            <div className="space-y-4 " id="contact">
+              <h3 className="text-2xl font-semibold text-parascap-darkGray  mb-4">
                 Send Us a Message
               </h3>
               <Form {...form}>
@@ -190,7 +184,7 @@ export default function ContactPage() {
                             <Input
                               placeholder="Your Name"
                               {...field}
-                              className="dark:bg-gray-950 dark:border-gray-800"
+                              className="bg-white text-gray-900  px-4 py-2 rounded-md text-sm sm:text-base"
                             />
                           </FormControl>
                           <FormMessage />
@@ -208,7 +202,7 @@ export default function ContactPage() {
                               type="email"
                               placeholder="Your Email"
                               {...field}
-                              className="dark:bg-gray-950 dark:border-gray-800"
+                              className="bg-white text-gray-900  dark:border-gray-800 px-4 py-2 rounded-md text-sm sm:text-base"
                             />
                           </FormControl>
                           <FormMessage />
@@ -226,7 +220,7 @@ export default function ContactPage() {
                           <Input
                             placeholder="Subject of your message"
                             {...field}
-                            className="dark:bg-gray-950 dark:border-gray-800"
+                            className="bg-white text-gray-900  dark:border-gray-800 px-4 py-2 rounded-md text-sm sm:text-base"
                           />
                         </FormControl>
                         <FormMessage />
@@ -244,7 +238,7 @@ export default function ContactPage() {
                             placeholder="How can we help you?"
                             rows={5}
                             {...field}
-                            className="dark:bg-gray-950 dark:border-gray-800"
+                            className="bg-white text-gray-900   px-4 py-2 rounded-md text-sm sm:text-base"
                           />
                         </FormControl>
                         <FormMessage />
@@ -280,10 +274,13 @@ export default function ContactPage() {
                 business needs in detail.
               </p>
             </div>
-            {/* TODO: Link this button to a Calendly or scheduling tool */}
-            <Button className="bg-parascap-darkGray text-white hover:bg-black/80 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-200">
+
+            <Link
+              href="#contact"
+              className="py-2  px-3 rounded-lg bg-parascap-darkGray text-white hover:bg-black/80 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-200"
+            >
               Schedule Now
-            </Button>
+            </Link>
           </div>
         </div>
       </section>
