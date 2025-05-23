@@ -4,8 +4,12 @@ import { stripHtml, formatDate } from "./utils"; // Import from consolidated uti
 
 const WP_API_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
 
+console.log("WP_API_URL:", WP_API_URL); // Debugging line to check the URL
+
 if (!WP_API_URL) {
-  console.error("CRITICAL: WORDPRESS_API_URL environment variable is not set.");
+  console.error(
+    "CRITICAL: WORDPRESS_API_URL environment variable is not set NEXT_PUBLIC_WORDPRESS_API_URL"
+  );
   // Consider throwing an error during build if this is essential
   // throw new Error("WORDPRESS_API_URL environment variable must be set.");
 }
