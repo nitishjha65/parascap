@@ -169,7 +169,7 @@ export default function Home() {
     >
       {/* Hero Section */}
       <div className="one relative min-h-screen w-full overflow-hidden flex items-center justify-center py-16">
-        <div className="container mx-auto px-4 text-center z-10 relative mt-[-150px]">
+        <div className="container mx-auto px-4 text-center z-10 relative mt-[-120px]">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
             Vision to Valuation: Your Growth Partners
           </h1>
