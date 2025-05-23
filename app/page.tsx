@@ -107,7 +107,7 @@ export default function Home() {
         scrollTrigger: {
           trigger: ".two",
           start: "0% 90%",
-          end: "50% 30%",
+          end: "45% 28%",
           scrub: true,
         },
         top: "150%",
@@ -312,8 +312,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <section className="w-full pt-12 pb-6 md:pt-24 md:pb-18 bg-[#0a2e1f] text-white rounded-t-parascaporderRadius ">
-        <div className="container px-4 md:px-6">
+      <section className="w-full pt-12 pb-6 md:pt-24 md:pb-18 bg-[#0a2e1f] text-white rounded-t-parascaporderRadius mx-auto">
+        <div className=" px-4 md:px-6">
           <div className="flex flex-col items-center space-y-4 text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tighter">
               OUR SERVICES

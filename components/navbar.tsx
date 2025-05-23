@@ -49,8 +49,9 @@ export default function Navbar() {
   }, [isMenuOpen]);
 
   return (
+    // md:supports-[backdrop-filter]:bg-background/60
     <header
-      className={`sticky top-0 z-50 w-full border-b border-border/40 bg-white/40  md:supports-[backdrop-filter]:bg-background/60 backdrop-blur  transition-shadow ${
+      className={`sticky top-0 z-50 w-full border-b border-border/40 bg-white/40   backdrop-blur  transition-shadow ${
         isScrolled ? "shadow-md" : ""
       }`}
     >

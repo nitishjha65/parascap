@@ -174,3 +174,7 @@ body {
     rgba(0, 0, 0, 0) 100%
   );
 }
+
+[data-animated-element] {
+  will-change: transform, opacity;
+}
