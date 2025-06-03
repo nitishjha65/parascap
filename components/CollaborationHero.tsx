@@ -86,7 +86,7 @@ export default function CollaborationHero() {
     // <div className="w-full py-12 md:py-16 bg-gray-50 rounded-t-parascaporderRadius">
     <div className="container px-4 md:px-6 mx-auto md:flex flex-col md:flex-row gap-10 items-center">
       <div className="flex-1 flex flex-col justify-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-600">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-red-600">
           WE PARTNER WITH PEOPLE, NOT JUST COMPANIES
         </h2>
         <p className="text-gray-600 mb-4">
@@ -97,7 +97,7 @@ export default function CollaborationHero() {
         </p>
         <p className="text-gray-600 mb-4">
           We believe in investing not only capital but conviction-in your
-          purpose, your ambition and your long term potential. Whether you are
+          purpose, your ambition and your long-term potential. Whether you are
           gearing up for your first round of funding or preparing for a public
           debut, we bring the strategic muscle and financial insight to turn
           vision into measurable value.
@@ -108,7 +108,7 @@ export default function CollaborationHero() {
         </p>
 
         <p className="text-gray-600 mb-4">
-          TO WALK WITH YOU-FROM VISION TO VALUATION-CO-CREATUNG REAL IMPACT
+          TO WALK WITH YOU-FROM VISION TO VALUATION, CO-CREATUNG REAL IMPACT
           EVERY STEP OF THE WAY
         </p>
 
