@@ -21,7 +21,7 @@ interface BlogPostPageProps {
 // Use the interface here too for strong typing
 export async function generateMetadata({ params }: any) {
   // Access slug directly from the destructured params
-  const slug = params.slug;
+  const slug = params?.slug;
   // Await the data fetching *using* the slug
   const { post, error } = await getPostBySlug(slug);
 

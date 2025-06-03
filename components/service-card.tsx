@@ -3,9 +3,8 @@ import { TrendingUp, Briefcase, BarChart2, Users } from "lucide-react";
 
 interface ServiceCardProps {
   title: string;
-  description: string;
+  description: React.ReactNode;
   icon: string;
-  // className: string;
 }
 
 export default function ServiceCard({
@@ -33,13 +32,13 @@ export default function ServiceCard({
       <CardHeader className="pb-2 pt-4 px-4 w-full">
         <div className="flex flex-col items-center">
           {getIcon()}
-          <CardTitle className="text-lg md:text-xl font-bold  text-black">
+          <CardTitle className="text-lg md:text-xl font-bold text-black">
             {title}
           </CardTitle>
         </div>
       </CardHeader>
-      <CardContent className="pt-2 px-4 w-full">
-        <p className="text-sm md:text-base text-gray-500">{description}</p>
+      <CardContent className="pt-2 px-4 w-full text-sm md:text-base text-gray-500">
+        {description}
       </CardContent>
     </Card>
   );

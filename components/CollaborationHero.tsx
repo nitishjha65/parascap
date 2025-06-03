@@ -90,14 +90,29 @@ export default function CollaborationHero() {
           WE PARTNER WITH PEOPLE, NOT JUST COMPANIES
         </h2>
         <p className="text-gray-600 mb-4">
-          We work with high-growth potential companies & visionary founders who
-          are transforming industries.
+          We work with high potential companies and visionary founders who are
+          rewriting the rules of their industries. At Parascap ventures, we just
+          don’t advise from the sidelines-we immerse ourselves in your journey,
+          aligning our success with yours.
         </p>
         <p className="text-gray-600 mb-4">
-          Our mission is simple: To walk with you, from vision to valuation,
-          creating real impact along the way.
+          We believe in investing not only capital but conviction-in your
+          purpose, your ambition and your long term potential. Whether you are
+          gearing up for your first round of funding or preparing for a public
+          debut, we bring the strategic muscle and financial insight to turn
+          vision into measurable value.
         </p>
-        <Link
+
+        <p className="text-gray-600 mb-4">
+          Our mission is simple, yet powerful
+        </p>
+
+        <p className="text-gray-600 mb-4">
+          TO WALK WITH YOU-FROM VISION TO VALUATION-CO-CREATUNG REAL IMPACT
+          EVERY STEP OF THE WAY
+        </p>
+
+        {/* <Link
           href="#case-studies"
           className="inline-block text-[#007bff] font-bold group w-fit"
           aria-label="See case studies"
@@ -106,7 +121,7 @@ export default function CollaborationHero() {
           <div className="h-0.5 bg-gray-300 overflow-hidden">
             <div className="h-full bg-[#007bff] w-0 group-hover:w-full transition-all duration-300"></div>
           </div>
-        </Link>
+        </Link> */}
       </div>
 
       <div className="flex-1 relative h-[600px] overflow-hidden flex gap-5">
@@ -123,25 +138,14 @@ export default function CollaborationHero() {
             {/* Column 1 Images */}
             {[...Array(2)].map((_, dupIndex) => (
               <div key={dupIndex}>
-                {[10, 11, 12, 13, 14, 15].map((num) => (
+                {[4, 5, 6, 7, 8, 9, 1, 2, 3].map((num) => (
                   <div
                     key={`${dupIndex}-${num}`}
                     className="marquee-image-wrap mb-4 rounded-lg overflow-hidden shadow-md"
                   >
                     <Image
-                      src={`https://cdn.prod.website-files.com/644b5842d82a33773b01b392/64679bc${
-                        num < 10 ? "2" : num < 13 ? "3" : "4"
-                      }${
-                        {
-                          10: "026a96247698c390_10",
-                          11: "5d7c74151c1a989c_11",
-                          12: "4c502e819c56ded5_12",
-                          13: "21f779ba773cd523_13",
-                          14: "9c4caec8e30a5337_14",
-                          15: "823f32b295ae3b80_15",
-                        }[num]
-                      }.png`}
-                      alt={`Image ${num}`}
+                      src={`/images (${num}).jpg`}
+                      alt={`Image 0${num}`}
                       width={300}
                       height={200}
                       className="w-full h-auto object-cover"
@@ -162,24 +166,13 @@ export default function CollaborationHero() {
             {/* Column 2 Images */}
             {[...Array(2)].map((_, dupIndex) => (
               <div key={dupIndex}>
-                {[1, 2, 3, 4, 5, 6].map((num) => (
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
                   <div
                     key={`${dupIndex}-${num}`}
                     className="marquee-image-wrap mb-4 rounded-lg overflow-hidden shadow-md"
                   >
                     <Image
-                      src={`https://cdn.prod.website-files.com/644b5842d82a33773b01b392/64679bb${
-                        num < 2 ? "d" : num < 4 ? "f" : "e"
-                      }${
-                        {
-                          1: "588afd1097adb2c1_01",
-                          2: "5a3a589472a83323_02",
-                          3: "eb134ce78a3aea1f_03",
-                          4: "70c2a4d0883a52fe_04",
-                          5: "e1e48983ca6e7f08_05",
-                          6: "e1e48983ca6e7f0e_06",
-                        }[num]
-                      }.png`}
+                      src={`/images (${num}).jpg`}
                       alt={`Image 0${num}`}
                       width={300}
                       height={200}
@@ -201,25 +194,14 @@ export default function CollaborationHero() {
             {/* Column 3 Images */}
             {[...Array(2)].map((_, dupIndex) => (
               <div key={dupIndex}>
-                {[19, 20, 21, 22, 23, 24].map((num) => (
+                {[1, 2, 3, 4, 5, 6].map((num) => (
                   <div
                     key={`${dupIndex}-${num}`}
                     className="marquee-image-wrap mb-4 rounded-lg overflow-hidden shadow-md"
                   >
                     <Image
-                      src={`https://cdn.prod.website-files.com/644b5842d82a33773b01b392/64679bc${
-                        num < 20 ? "6" : "7"
-                      }${
-                        {
-                          19: "51aeea62853b72e9_19",
-                          20: "9a886a3057b67149_20",
-                          21: "dd96a67508785cde_21",
-                          22: "d4d06047123dcd0f_22",
-                          23: "4c502e819c56e519_23",
-                          24: "a76e02a6a9bf0dcf_24",
-                        }[num]
-                      }.png`}
-                      alt={`Image ${num}`}
+                      src={`/images (${num}).jpg`}
+                      alt={`Image 0${num}`}
                       width={300}
                       height={200}
                       className="w-full h-auto object-cover"

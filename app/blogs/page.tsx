@@ -1,16 +1,15 @@
 // app/blogs/page.tsx
-"use client"; // Needs to be client component for state/interaction
+"use client"; //state/interaction
 
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Search, ArrowLeft, Terminal } from "lucide-react";
-import { getPosts } from "@/lib/api"; // Assuming getPosts can handle pagination or create a new function
-import { formatDate, stripHtml } from "@/lib/utils"; // Use utils
+import { formatDate, stripHtml } from "@/lib/utils";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { useState, useEffect } from "react"; // For state management
-import { Skeleton } from "@/components/ui/skeleton"; // For initial load
-import { Input } from "@/components/ui/input"; // For search
+import { useState, useEffect } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Input } from "@/components/ui/input";
 import {
   Pagination,
   PaginationContent,
@@ -19,9 +18,8 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination"; // Import Pagination
+} from "@/components/ui/pagination";
 
-// Define post type matching API response or WpPostData from types/wordpress.d.ts
 interface Post {
   id: number;
   slug: string;
@@ -31,12 +29,12 @@ interface Post {
   _embedded?: {
     author?: { name: string }[];
     "wp:featuredmedia"?: { source_url: string; alt_text: string }[];
-    "wp:term"?: any[][]; // Simplified term structure [[categories],[tags]]
+    "wp:term"?: any[][];
+    //[([categories], [tags])];
   };
-  // Add other fields as needed
 }
 
-const POSTS_PER_PAGE = 9; // Number of posts per page
+const POSTS_PER_PAGE = 9;
 
 export default function BlogsPage() {
   const [allPosts, setAllPosts] = useState<Post[]>([]); // Store all fetched posts for client-side search/filter
@@ -47,18 +45,14 @@ export default function BlogsPage() {
   const [totalPages, setTotalPages] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // --- Fetching Logic ---
   useEffect(() => {
     async function fetchAllPosts() {
       setIsLoading(true);
       setError(null);
       try {
-        // Fetch ALL posts initially for client-side search simplicity
-        // For large numbers of posts, server-side search/pagination is better
-        // TODO: Replace with actual API call - this example fetches all
         const response = await fetch(
-          `http://localhost/wp-headless/server/wp-json/wp/v2/posts?_embed&per_page=100`
-        ); // Fetch up to 100 posts
+          `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/wp/v2/posts?_embed&per_page=100`
+        );
 
         if (!response.ok) {
           throw new Error(`API Error: ${response.status}`);
@@ -217,7 +211,7 @@ export default function BlogsPage() {
         <div className="container px-4 md:px-6">
           <div className="flex w-full max-w-md mx-auto items-center space-x-2">
             <div className="relative flex-1">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500 dark:text-gray-400" />
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
               <Input
                 type="search"
                 placeholder="Search articles..."
@@ -255,7 +249,7 @@ export default function BlogsPage() {
                 </Button>
               </div>
             </Alert>
-          ) : paginatedPosts.length > 0 ? (
+          ) : paginatedPosts?.length > 0 ? (
             <>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {paginatedPosts.map((post) => {
@@ -282,7 +276,7 @@ export default function BlogsPage() {
                   return (
                     <div
                       key={post.id}
-                      className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:shadow-md dark:bg-gray-900 dark:border-gray-800"
+                      className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:shadow-md "
                     >
                       <Link href={`/blogs/${post.slug}`} className="block">
                         <div className="aspect-video overflow-hidden bg-gray-100 dark:bg-gray-800">
@@ -292,10 +286,10 @@ export default function BlogsPage() {
                               alt={featuredImageAlt}
                               width={300}
                               height={200}
-                              className="object-cover transition-transform group-hover:scale-105 grayscale w-full h-full"
+                              className="object-cover transition-transform group-hover:scale-105  w-full h-full"
                             />
                           ) : (
-                            <div className="w-full h-full flex items-center justify-center text-gray-500 grayscale">
+                            <div className="w-full h-full flex items-center justify-center text-gray-500 ">
                               No Image
                             </div>
                           )}

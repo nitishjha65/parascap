@@ -1,10 +1,35 @@
+"use client";
+
 import Link from "next/link";
+
 import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 import CollaborationHero from "../../components/CollaborationHero";
 import LogoMarquee from "@/components/LogoMarquee";
+import { useEffect, useState } from "react";
 
 export default function AboutPage() {
+  const [teamMembers, setTeamMembers] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchTeam() {
+      try {
+        const res = await fetch(
+          "https://dragonball-api.com/api/characters?limit=5"
+        );
+        const data = await res.json();
+        setTeamMembers(data?.items);
+      } catch (error) {
+        console.error("Error fetching team members:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchTeam();
+  }, []);
+
   return (
     <main className="flex min-h-screen flex-col ">
       {/* Hero Section */}
@@ -14,10 +39,15 @@ export default function AboutPage() {
           <span className="text-[#4CAF50] font-semibold">Meet The Team</span>
         </h1>
         <p className="text-lg text-gray-600 max-w-4xl">
-          At Parascap Ventures, our team blends deep financial expertise with an
-          entrepreneurial mindset. We're more than advisors - we're strategic
+          {`At Parascap Ventures, our team blends deep financial expertise with an
+          entrepreneurial mindset. We’re more than advisors-we are strategic
           partners who roll up our sleeves and work alongside founders.
-          Together, let's build something remarkable.
+          Together, let’s build something remarkable. With decades of combined
+          experience across investment banking, private equity and capital
+          markets our leadership brings insights, agility and result-driven
+          thinking to every engagement. At our core, we value integrity,
+          ownership and long term partnerships that create real impact for
+          visionary businesses.`}
         </p>
       </div>
 
@@ -25,14 +55,13 @@ export default function AboutPage() {
         {/* Team Section */}
         <section className="w-full py-12 md:py-16 ">
           <div className="container px-4 md:px-6">
-            <h2 className="text-2xl font-bold mb-8 text-center">
+            {/* <h2 className="text-2xl font-bold mb-8 text-center">
               people{" "}
               <span className="text-[#4CAF50] font-semibold">committed </span>to
               your
               <span className="text-[#4CAF50] font-semibold"> success</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Team Member 1 */}
               <div className="rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg">
                 <div className="relative">
                   <div className="aspect-[4/3] relative">
@@ -68,7 +97,6 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Team Member 2 */}
               <div className=" rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg">
                 <div className="relative">
                   <div className="aspect-[4/3] relative">
@@ -104,7 +132,6 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Team Member 3 */}
               <div className=" rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg">
                 <div className="relative">
                   <div className="aspect-[4/3] relative">
@@ -140,7 +167,6 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Team Member 4 */}
               <div className=" rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg">
                 <div className="relative">
                   <div className="aspect-[4/3] relative">
@@ -176,7 +202,6 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Team Member 5 */}
               <div className="rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg">
                 <div className="relative">
                   <div className="aspect-[4/3] relative">
@@ -212,7 +237,6 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Team Member 6 - Placeholder */}
               <div className=" rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg">
                 <div className="relative">
                   <div className="aspect-[4/3] relative">
@@ -247,12 +271,79 @@ export default function AboutPage() {
                   </button>
                 </div>
               </div>
+            </div> */}
+
+            <div className="bg-[#E7FFC8]">
+              {/* Team Section */}
+              <section className="w-full py-12 md:py-16">
+                <div className="container px-4 md:px-6">
+                  <h2 className="text-2xl font-bold mb-8 text-center">
+                    people{" "}
+                    <span className="text-[#4CAF50] font-semibold">
+                      committed{" "}
+                    </span>
+                    to your
+                    <span className="text-[#4CAF50] font-semibold">
+                      {" "}
+                      success
+                    </span>
+                  </h2>
+
+                  {loading ? (
+                    <p className="text-center">Loading...</p>
+                  ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {teamMembers.map((member) => (
+                        <div
+                          key={member.id}
+                          className="rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg"
+                        >
+                          <div className="relative aspect-[4/3]  bg-green-600">
+                            <Image
+                              src={member?.image}
+                              alt={member?.name}
+                              fill
+                              className="object-contain"
+                            />
+                          </div>
+                          <div className="p-5 flex justify-between items-center border-t border-gray-100">
+                            <div>
+                              <h3 className="font-semibold text-lg">
+                                {member.name}
+                              </h3>
+                              <p className="text-gray-600 text-sm">
+                                {member.position}
+                              </p>
+                            </div>
+                            <button className="text-gray-400 hover:text-gray-600">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                                <path d="M12 5l7 7-7 7" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </section>
             </div>
           </div>
         </section>
 
         <section className="py-12 md:py-24 lg:py-32 bg-parascap-green text-white rounded-t-parascaporderRadius ">
-          <div className="container">
+          <div className="">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -327,20 +418,20 @@ export default function AboutPage() {
             <div className="w-full pt-12 md:pt-16 bg-gray-50 rounded-t-parascaporderRadius mt-16">
               <CollaborationHero />
 
-              <div className="w-full py-12 md:py-16 mt-16 rounded-t-parascaporderRadius bg-parascap-green ">
-                <div className="container px-4 md:px-6 ">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+              <div className="w-full py-12 md:py-16 mt-16 rounded-t-parascaporderRadius bg-parascap-green  ">
+                <div className=" px-4 md:px-6">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-24 text-center ">
                     Why Partner With Us
                   </h2>
-                  <p className="text-center  text-white/70  mb-12 max-w-3xl mx-auto">
+                  {/* <p className="text-center  text-white/70  mb-12 max-w-3xl mx-auto">
                     OUR COMMITMENT TO YOUR SUCCESS IS REFLECTED IN OUR APPROACH.
-                  </p>
+                  </p> */}
 
                   {/* ////////////////////////////////////// */}
                   <div className="flex flex-col md:flex-row justify-between items-center gap-8">
                     {/* First column */}
 
-                    <div>
+                    {/* <div>
                       <Image
                         src="/placeholder.svg?height=300&width=400"
                         alt="Partnership Values"
@@ -348,42 +439,65 @@ export default function AboutPage() {
                         height={300}
                         className="rounded-lg mb-6"
                       />
-                    </div>
+                    </div> */}
 
                     {/* Middle column with table */}
-                    <div className="w-full md:w-1/3">
+                    <div className="md:w-2/3 mx-auto">
                       <div className="overflow-x-auto">
-                        <table className="w-full border-collapse">
+                        <table className="w-full border-collapse mx-auto text-center">
                           <tbody>
                             <tr className="border-b">
-                              <td className="py-4 px-4 font-medium border-r">
-                                Pan India
+                              <td className="py-4 px-4 font-medium border-r text-center">
+                                Pan-India{" "}
                               </td>
-                              <td className="py-4 px-8 ">Experience</td>
+                              <td className="py-4 px-12">
+                                Founder-first approach
+                              </td>
                             </tr>
                             <tr className="border-b">
                               <td className="py-4 px-4 font-medium border-r">
-                                Long-term vision
+                                Experience{" "}
                               </td>
-                              <td className="py-4 px-8">
-                                Implementation Focus
+                              <td className="py-4  text-center">
+                                Execution excellence{" "}
+                              </td>
+                            </tr>
+                            <tr className="border-b">
+                              <td className="py-4 px-4 font-medium border-r">
+                                Long-Term vision
+                              </td>
+                              <td className="py-4 px-12">
+                                data-driven decisions{" "}
                               </td>
                             </tr>
                             <tr className="border-b">
                               <td className="py-4 px-4 font-medium border-r">
                                 Unwavering accountability
                               </td>
-                              <td className="py-4 px-8">
+                              <td className="py-4 px-12">
                                 Ownership at all levels
                               </td>
                             </tr>
-
+                            <tr className="border-b">
+                              <td className="py-4 px-4 font-medium border-r">
+                                Unwavering accountability
+                              </td>
+                              <td className="py-4 px-12">
+                                Network that delivers
+                              </td>
+                            </tr>
+                            <tr className="border-b">
+                              <td className="py-4 px-4 font-medium border-r">
+                                Implementation Focus{" "}
+                              </td>
+                              <td className="py-4 px-12">Hands-on support </td>
+                            </tr>
                             <tr className="">
                               <td className="py-4 px-4 font-medium border-r text-parascap-green">
                                 Unwavering accountability
                               </td>
-                              <td className="py-4 px-4  text-parascap-green">
-                                Ownership at all levels
+                              <td className="py-4 px-4 text-parascap-green">
+                                Network that delivers
                               </td>
                             </tr>
                           </tbody>
@@ -392,7 +506,7 @@ export default function AboutPage() {
                     </div>
 
                     {/* Third column */}
-                    <div>
+                    {/* <div>
                       <Image
                         src="/placeholder.svg?height=300&width=400"
                         alt="Partnership Values"
@@ -400,7 +514,7 @@ export default function AboutPage() {
                         height={300}
                         className="rounded-lg mb-6"
                       />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

@@ -330,22 +330,170 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <ServiceCard
               title="IPO Advisory"
-              description="Expert guidance for companies preparing for public offerings"
               icon="trending-up"
+              description={
+                <>
+                  <p>
+                    From private to public – seamlessly. We guide high growth
+                    companies through the complexities of going public. From
+                    regulatory readiness and financial restructuring to
+                    strategic positioning and underwriter engagement, Parascap
+                    Ventures ensures a smooth IPO journey tailored to your
+                    long-term vision.
+                  </p>
+                  <ul className="list-none pl-0 mt-4 space-y-1">
+                    <li className="flex items-start">
+                      <span className="text-green-500 mr-3 mt-0.5 flex-shrink-0">
+                        ✅
+                      </span>
+                      <span className="text-left">
+                        End to end IPO execution
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-500 mr-3 mt-0.5 flex-shrink-0">
+                        ✅
+                      </span>
+
+                      <span className="text-left">
+                        Regulatory and SEBI compliance
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-500 mr-3 mt-0.5 flex-shrink-0">
+                        ✅
+                      </span>
+
+                      <span className="text-left">
+                        Valuation and marketing positioning strategies
+                      </span>
+                    </li>
+                  </ul>
+                </>
+              }
             />
+
             <ServiceCard
               title="Private Equity"
-              description="Strategic investment solutions for growth and expansion"
               icon="briefcase"
+              description={
+                <>
+                  <p>
+                    Capital meets Strategy. At Parascap Ventures we connect
+                    businesses with the right investors who align with their
+                    growth ambitions. Our in-depth evaluation, deal structuring
+                    and capital raising strategies unlock value and scalability
+                    for emerging and mid-market enterprises.
+                  </p>
+
+                  <ul className="list-none pl-0 mt-4 space-y-1">
+                    <li className="flex items-start">
+                      <>
+                        <span className="text-green-500 mr-3 mt-0.5 flex-shrink-0">
+                          ✅
+                        </span>
+                        <span className="text-left">
+                          Growth capital and expansion funding
+                        </span>
+                      </>
+                    </li>
+                    <li className="flex items-start">
+                      <>
+                        <span className="text-green-500 mr-3 mt-0.5 flex-shrink-0">
+                          ✅
+                        </span>
+                        <span className="text-left">
+                          Deal sourcing and investor matchmaking
+                        </span>
+                      </>
+                    </li>
+                    <li className="flex items-start">
+                      <>
+                        <span className="text-green-500 mr-3 mt-0.5 flex-shrink-0">
+                          ✅
+                        </span>
+                        <span className="text-left">
+                          Due diligence and valuation support
+                        </span>
+                      </>
+                    </li>
+                  </ul>
+                </>
+              }
             />
+
             <ServiceCard
               title="Strategic Financial Advisory"
-              description="Comprehensive financial planning and strategic guidance"
               icon="bar-chart-2"
+              description={
+                <>
+                  <p>
+                    Your growth. Our Blueprint. We offer high-impact insights to
+                    help businesses navigate transactions, scale sustainably and
+                    stay competitive. To turn around strategies, we provide
+                    data-driven, actionable solutions.
+                  </p>
+                  <ul className="list-none pl-0 mt-4 space-y-1">
+                    <li className="flex items-start">
+                      <span className="text-green-500 mr-3 mt-0.5 flex-shrink-0">
+                        ✅
+                      </span>
+                      <span className="text-left">Business Restructuring</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-500 mr-3 mt-0.5 flex-shrink-0">
+                        ✅
+                      </span>
+                      <span className="text-left">
+                        {" "}
+                        Market entry and expansion strategies
+                      </span>
+                    </li>
+                  </ul>
+                </>
+              }
             />
+
             <ServiceCard
               title="Investor Relations"
-              description="Building and maintaining strong relationships with investors"
+              description={
+                <>
+                  <p>
+                    Building Trust Through Transparency. Strong investor
+                    relationships are built on trust, communication and
+                    consistency. We help companies craft compelling narratives,
+                    maintain regulatory transparency, and foster long-term
+                    investor confidence.
+                  </p>
+                  <ul className="list-none pl-0 mt-4 space-y-1">
+                    <li className="flex items-start">
+                      <span className="text-green-500 mr-3 mt-0.5 flex-shrink-0">
+                        ✅
+                      </span>
+                      <span className="text-left">
+                        Investor communication strategy
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-500 mr-3 mt-0.5 flex-shrink-0">
+                        ✅
+                      </span>
+                      <span className="text-left">
+                        Quarterly and annual reporting
+                      </span>
+                    </li>
+
+                    <li className="flex items-start">
+                      <span className="text-green-500 mr-3 mt-0.5 flex-shrink-0">
+                        ✅
+                      </span>
+                      <span className="text-left">
+                        Stakeholder engagement programs
+                      </span>
+                    </li>
+                  </ul>
+                </>
+              }
               icon="users"
             />
           </div>
