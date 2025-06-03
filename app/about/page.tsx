@@ -9,26 +9,121 @@ import LogoMarquee from "@/components/LogoMarquee";
 import { useEffect, useState } from "react";
 
 export default function AboutPage() {
-  const [teamMembers, setTeamMembers] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  // const [teamMembers, setTeamMembers] = useState<any[]>([]);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    async function fetchTeam() {
-      try {
-        const res = await fetch(
-          "https://dragonball-api.com/api/characters?limit=5"
-        );
-        const data = await res.json();
-        setTeamMembers(data?.items);
-      } catch (error) {
-        console.error("Error fetching team members:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
+  const teamMembers = [
+    {
+      id: 1,
+      name: "Manohar",
+      position: "Investment Banker",
+      ki: "60.000.000",
+      maxKi: "90 Septillion",
+      race: "Saiyan",
+      gender: "Male",
+      description:
+        "El protagonista de la serie, conocido por su gran poder y personalidad amigable. Originalmente enviado a la Tierra como un infante volador con la misión de conquistarla. Sin embargo, el caer por un barranco le proporcionó un brutal golpe que si bien casi lo mata, este alteró su memoria y anuló todos los instintos violentos de su especie, lo que lo hizo crecer con un corazón puro y bondadoso, pero conservando todos los poderes de su raza. No obstante, en la nueva continuidad de Dragon Ball se establece que él fue enviado por sus padres a la Tierra con el objetivo de sobrevivir a toda costa a la destrucción de su planeta por parte de Freeza. Más tarde, Kakarot, ahora conocido como Son Goku, se convertiría en el príncipe consorte del monte Fry-pan y líder de los Guerreros Z, así como el mayor defensor de la Tierra y del Universo 7, logrando mantenerlos a salvo de la destrucción en innumerables ocasiones, a pesar de no considerarse a sí mismo como un héroe o salvador.",
+      image: "https://dragonball-api.com/characters/goku_normal.webp",
+      affiliation: "Z Fighter",
+      deletedAt: null,
+    },
 
-    fetchTeam();
-  }, []);
+    {
+      id: 2,
+      name: "Tamohini",
+      position: "IB Analyst",
+
+      ki: "530.000",
+      maxKi: "52.71 Septillion",
+      race: "Frieza Race",
+      gender: "Male",
+      description:
+        "Freezer es el tirano espacial y el principal antagonista de la saga de Freezer.",
+      image:
+        "https://dragonball-api.com/characters/Lunch_traje_de_sirvienta_en_el_manga.webp",
+      affiliation: "Army of Frieza",
+      deletedAt: null,
+    },
+
+    {
+      id: 3,
+      name: "Ashutosh",
+      position: "CA, Investment Banker",
+      ki: "2.000.000",
+      maxKi: "500.000.000",
+      race: "Namekian",
+      gender: "Male",
+      description:
+        'Es un namekiano que surgió tras ser creado en los últimos momentos de vida de su padre, siendo su actual reencarnación. Aunque en un principio fue el archienemigo de Son Goku, con el paso del tiempo fue haciéndose menos malvado hasta finalmente convertirse en un ser bondadoso y miembro de los Guerreros Z. A través del tiempo, también comenzó a tomarle cariño a su discípulo Son Gohan, a quien veía como una especie de "vástago" y formando un lazo de amistad con este.',
+      image: "https://dragonball-api.com/characters/picolo_normal.webp",
+      affiliation: "Z Fighter",
+      deletedAt: null,
+    },
+    {
+      id: 4,
+      name: "Mehak",
+      position: "IB Advsior",
+      ki: "54.000.000",
+      maxKi: "19.84 Septillion",
+      race: "Saiyan",
+      gender: "Male",
+      description:
+        "Príncipe de los Saiyans, inicialmente un villano, pero luego se une a los Z Fighters. A pesar de que a inicios de Dragon Ball Z, Vegeta cumple un papel antagónico, poco después decide rebelarse ante el Imperio de Freeza, volviéndose un aliado clave para los Guerreros Z. Con el paso del tiempo llegaría a cambiar su manera de ser, optando por permanecer y vivir en la Tierra para luchar a su lado contra las inminentes adversidades que superar. Junto con Piccolo, él es de los antiguos enemigos de Goku que ha evolucionando al pasar de ser un villano y antihéroe, a finalmente un héroe a lo largo del transcurso de la historia, convirtiéndose así en el deuteragonista de la serie.",
+      image: "https://dragonball-api.com/characters/Androide_18_Artwork.webp",
+      affiliation: "Z Fighter",
+      deletedAt: null,
+    },
+    {
+      id: 5,
+      name: "Paridhi",
+      position: "IB Advsior",
+      ki: "0",
+      maxKi: "0",
+      race: "Human",
+      gender: "Female",
+      description:
+        "Bulma es la protagonista femenina de la serie manga Dragon Ball y sus adaptaciones al anime Dragon Ball, Dragon Ball Z, Dragon Ball Super y Dragon Ball GT. Es hija del Dr. Brief y su esposa Panchy, hermana menor de Tights y una gran amiga de Son Goku con quien inicia la búsqueda de las Esferas del Dragón. En Dragon Ball Z tuvo a Trunks, primogénito de quien sería su esposo Vegeta, a su hija Bra[3] y su hijo adulto del tiempo alterno Trunks del Futuro Alternativo.",
+      image: "https://dragonball-api.com/characters/bulma.webp",
+      affiliation: "Z Fighter",
+      deletedAt: null,
+    },
+
+    {
+      id: 6,
+      name: "Ayush Anand",
+      position: "Equity Research Analyst",
+
+      ki: "530.000",
+      maxKi: "52.71 Septillion",
+      race: "Frieza Race",
+      gender: "Male",
+      description:
+        "Freezer es el tirano espacial y el principal antagonista de la saga de Freezer.",
+      image: "https://dragonball-api.com/characters/17_Artwork.webp",
+      affiliation: "Army of Frieza",
+      deletedAt: null,
+    },
+  ];
+
+  // useEffect(() => {
+  //   async function fetchTeam() {
+  //     try {
+  //       const res = await fetch(
+  //         "https://dragonball-api.com/api/characters?limit=5"
+  //       );
+  //       const data = await res.json();
+  //       setTeamMembers(data?.items);
+
+  //       console.log("Fetched team members:", data?.items);
+  //     } catch (error) {
+  //       console.error("Error fetching team members:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
+
+  //   fetchTeam();
+  // }, []);
 
   return (
     <main className="flex min-h-screen flex-col ">
@@ -289,53 +384,49 @@ export default function AboutPage() {
                     </span>
                   </h2>
 
-                  {loading ? (
-                    <p className="text-center">Loading...</p>
-                  ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {teamMembers.map((member) => (
-                        <div
-                          key={member.id}
-                          className="rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg"
-                        >
-                          <div className="relative aspect-[4/3]  bg-green-600">
-                            <Image
-                              src={member?.image}
-                              alt={member?.name}
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                          <div className="p-5 flex justify-between items-center border-t border-gray-100">
-                            <div>
-                              <h3 className="font-semibold text-lg">
-                                {member.name}
-                              </h3>
-                              <p className="text-gray-600 text-sm">
-                                {member.position}
-                              </p>
-                            </div>
-                            <button className="text-gray-400 hover:text-gray-600">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              >
-                                <path d="M5 12h14" />
-                                <path d="M12 5l7 7-7 7" />
-                              </svg>
-                            </button>
-                          </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {teamMembers.map((member) => (
+                      <div
+                        key={member.id}
+                        className="rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg"
+                      >
+                        <div className="relative aspect-[4/3]  bg-green-600">
+                          <Image
+                            src={member?.image}
+                            alt={member?.name}
+                            fill
+                            className="object-contain"
+                          />
                         </div>
-                      ))}
-                    </div>
-                  )}
+                        <div className="p-5 flex justify-between items-center border-t border-gray-100">
+                          <div>
+                            <h3 className="font-semibold text-lg">
+                              {member.name}
+                            </h3>
+                            <p className="text-gray-600 text-sm">
+                              {member.position}
+                            </p>
+                          </div>
+                          <button className="text-gray-400 hover:text-gray-600">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                              <path d="M12 5l7 7-7 7" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </section>
             </div>
