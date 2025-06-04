@@ -128,11 +128,20 @@ export default function AboutPage() {
   return (
     <main className="flex min-h-screen flex-col ">
       {/* Hero Section */}
-      <div className="container mt-10 py-8 md:py-12 px-4 md:px-10">
-        <h1 className="text-3xl md:text-4xl font-bold mb-5">
+      <div className=" mt-5 py-8 md:py-12 px-4 md:px-10 flex flex-col items-center justify-center text-center space-y-4">
+        {/* <h1 className="text-3xl md:text-4xl font-bold mb-5">
           From Strategy To Execution -{" "}
           <span className="text-[#4CAF50] font-semibold">Meet The Team</span>
+        </h1> */}
+        <h1 className="text-3xl md:text-4xl font-bold mb-2">
+          From Strategy To Execution
         </h1>
+
+        <h2>
+          <span className="text-[#4CAF50] text-3xl  font-extrabold">
+            Meet The Team
+          </span>
+        </h2>
         <p className="text-lg text-gray-600 max-w-4xl">
           {`At Parascap Ventures, our team blends deep financial expertise with an
           entrepreneurial mindset. We’re more than advisors-we are strategic
@@ -149,7 +158,7 @@ export default function AboutPage() {
       <div className="bg-[#E7FFC8]">
         {/* Team Section */}
         <section className="w-full py-12 md:py-16 ">
-          <div className="container px-4 md:px-6">
+          <div className=" px-4 md:px-6">
             {/* <h2 className="text-2xl font-bold mb-8 text-center">
               people{" "}
               <span className="text-[#4CAF50] font-semibold">committed </span>to
@@ -371,9 +380,9 @@ export default function AboutPage() {
             <div className="bg-[#E7FFC8]">
               {/* Team Section */}
               <section className="w-full py-12 md:py-16">
-                <div className="container px-4 md:px-6">
-                  <h2 className="text-2xl font-bold mb-8 text-center">
-                    people{" "}
+                <div className=" px-4 md:px-6">
+                  <h2 className=" text-2xl md:text-3xl font-bold mb-8 md:mb-16 text-center">
+                    People{" "}
                     <span className="text-[#4CAF50] font-semibold">
                       committed{" "}
                     </span>
@@ -437,10 +446,16 @@ export default function AboutPage() {
           <div className="">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                {/* <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Our Work
+                </h2> */}
+
+                <h2 className="text-2xl md:text-4xl font-extrabold md:tracking-widest text-white">
+                  {`O U R `} &nbsp;&nbsp;{` W O R K`}
                 </h2>
-                <p className="max-w-[900px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                {/* <p className="max-w-[900px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                 */}
+                <p className="text-white font-extrabold text-xl md:text-3xl/relaxed lg:text-3xl/relaxed">
                   Featured success stories from our portfolio
                 </p>
               </div>
@@ -499,7 +514,7 @@ export default function AboutPage() {
             </div>
             {/* Industries subsection */}
             <div className="mt-16">
-              <h3 className="text-xl font-bold mb-8 text-center">
+              <h3 className="text-xl md:text-3xl font-bold mb-8 text-center">
                 Some of the clients we are working with
               </h3>
 
@@ -511,12 +526,12 @@ export default function AboutPage() {
 
               <div className="w-full py-12 md:py-16 mt-16 rounded-t-parascaporderRadius bg-parascap-green  ">
                 <div className=" px-4 md:px-6">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-24 text-center ">
+                  <h2 className="text-2xl md:text-4xl md:font-extrabold mb-8 text-center ">
                     Why Partner With Us
                   </h2>
-                  {/* <p className="text-center  text-white/70  mb-12 max-w-3xl mx-auto">
+                  <p className="text-center text-xl md:text-2xl text-white  mb-12 max-w-3xl mx-auto">
                     OUR COMMITMENT TO YOUR SUCCESS IS REFLECTED IN OUR APPROACH.
-                  </p> */}
+                  </p>
 
                   {/* ////////////////////////////////////// */}
                   <div className="flex flex-col md:flex-row justify-between items-center gap-8">

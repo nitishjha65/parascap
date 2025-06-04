@@ -253,7 +253,7 @@ export default function Home() {
           <div className="relative top-40 w-full  md:justify-center pointer-events-none hidden md:flex">
             <div
               ref={titleRef}
-              className="text-3xl  text-black font-bold  opacity-0 translate-y-4 transition-all"
+              className="text-4xl  text-black font-bold  opacity-0 translate-y-4 transition-all"
             >
               GROWTH BEGINS WITH CLARITY
             </div>
@@ -315,13 +315,17 @@ export default function Home() {
       <section className="w-full pt-12 pb-6 md:pt-24 md:pb-18 bg-[#0a2e1f] text-white rounded-t-parascaporderRadius mx-auto">
         <div className=" px-4 md:px-6">
           <div className="flex flex-col items-center space-y-4 text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tighter">
-              OUR SERVICES
+            {/* <h2 className="text-3xl font-bold tracking-tighter"> */}
+            <h2 className="text-2xl md:text-4xl font-extrabold md:tracking-widest text-white">
+              {`O U R `} &nbsp;&nbsp;&nbsp;{`  S E R V I C E S`}
             </h2>
-            <p className="max-w-[700px] text-white/70 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            {/* <p className=" text-white/70 md:text-4xl/relaxed lg:text-4xl/relaxed xl:text-xl/relaxed">
+             */}
+            <p className="text-white font-extrabold text-xl md:text-3xl/relaxed lg:text-3xl/relaxed">
               COMPREHENSIVE CAPITAL ADVISORY SOLUTIONS
             </p>
-            <p className="max-w-[700px] text-white/70">
+            {/* <p className="max-w-[700px] text-white/70"> */}
+            <p className="max-w-[700px] text-white/90 text-base md:text-lg">
               We offer a wide range of advisory services to clients in some of
               the most active industry sectors & global markets.
             </p>
@@ -499,18 +503,20 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="md:px-6 bg-white my-10 md:my-20 text-gray-800 py-12 md:py-24 rounded-t-parascaporderRadius">
-          <div className="flex flex-col items-center space-y-4 text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tighter text-parascap-green">
+        <div className=" md:px-6 bg-white my-10 md:my-20 text-gray-800 py-12 md:py-24 rounded-t-parascaporderRadius">
+          <div className="flex flex-col items-center space-y-4 text-center mb-12 ">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-parascap-green md:mb-3">
               The Parascap Edge
             </h2>
-            <p className="max-w-[700px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              STRATEGIC - SECTOR AGNOSTIC - EXECUTION DRIVEN
+            <p className="max-w-[700px] text-gray-800 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed border border-parascap-green px-4 md:px-6 py-2 rounded-lg">
+              <span>STRATEGIC - SECTOR</span>
+
+              <span className="ml-5">AGNOSTIC - EXECUTION DRIVEN</span>
             </p>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
+            <table className="w-full border-collapse md:w-10/12 mx-auto">
               <thead>
                 <tr className="border-b">
                   <th className="py-4 px-6 text-left"></th>

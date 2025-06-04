@@ -86,9 +86,15 @@ export default function CollaborationHero() {
     // <div className="w-full py-12 md:py-16 bg-gray-50 rounded-t-parascaporderRadius">
     <div className="container px-4 md:px-6 mx-auto md:flex flex-col md:flex-row gap-10 items-center">
       <div className="flex-1 flex flex-col justify-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-red-600">
+        {/* <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800">
           WE PARTNER WITH PEOPLE, NOT JUST COMPANIES
+        </h2> */}
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800 text-center">
+          WE PARTNER WITH PEOPLE,
+          <br />
+          <span className="block text-center">NOT JUST COMPANIES</span>
         </h2>
+
         <p className="text-gray-600 mb-4">
           We work with high potential companies and visionary founders who are
           rewriting the rules of their industries. At Parascap ventures, we just
