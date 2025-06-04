@@ -104,6 +104,7 @@ export default function CollaborationHero() {
         <p className="text-gray-600 mb-4">
           We believe in investing not only capital but conviction-in your
           purpose, your ambition and your long-term potential. Whether you are
+          purpose, your ambition and your long-term potential. Whether you are
           gearing up for your first round of funding or preparing for a public
           debut, we bring the strategic muscle and financial insight to turn
           vision into measurable value.
@@ -114,8 +115,9 @@ export default function CollaborationHero() {
         </p>
 
         <p className="text-gray-600 mb-4">
-          TO WALK WITH YOU-FROM VISION TO VALUATION, CO-CREATUNG REAL IMPACT
-          EVERY STEP OF THE WAY
+          TO WALK WITH YOU-FROM VISION TO VALUATION, CO-CREATUNG REAL IMPACT TO
+          WALK WITH YOU-FROM VISION TO VALUATION, CO-CREATUNG REAL IMPACT EVERY
+          STEP OF THE WAY
         </p>
 
         {/* <Link

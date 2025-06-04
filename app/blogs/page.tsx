@@ -380,7 +380,7 @@ export default function BlogsPage() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+      {/* <section className="py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -392,7 +392,6 @@ export default function BlogsPage() {
                 updates.
               </p>
             </div>
-            {/* TODO: Implement newsletter form submission */}
             <div className="flex w-full max-w-md flex-col gap-2 min-[400px]:flex-row">
               <Input
                 type="email"
@@ -405,7 +404,7 @@ export default function BlogsPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
