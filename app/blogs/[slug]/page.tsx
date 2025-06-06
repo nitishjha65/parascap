@@ -91,27 +91,25 @@ export default async function BlogPostPage({ params }: any) {
   console.log("featuredImageUrllll", featuredImageUrl);
   const featuredImageAlt =
     post._embedded?.["wp:featuredmedia"]?.[0]?.alt_text ||
-    stripHtml(post.title.rendered);
-  const embeddedTerms = post._embedded?.["wp:term"] || [];
+    stripHtml(post?.title?.rendered);
+  const embeddedTerms = post?._embedded?.["wp:term"] || [];
   const categories: string[] = [];
   const tags: string[] = [];
   console.log("featuredImageUrl", featuredImageUrl);
   embeddedTerms.forEach((termGroup) => {
     termGroup.forEach((term) => {
       if (term.taxonomy === "category") {
-        categories.push(term.name);
-      } else if (term.taxonomy === "post_tag") {
-        tags.push(term.name);
+        categories.push(term?.name);
+      } else if (term?.taxonomy === "post_tag") {
+        tags.push(term?.name);
       }
     });
   });
 
-  // --- Render the page ---
   return (
     <>
       {/* Blog Post Hero */}
       <section className="py-12 md:py-24 lg:py-32 bg-parascap-darkGray text-white">
-        {/* ... rest of hero section ... */}
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <Link
@@ -124,12 +122,12 @@ export default async function BlogPostPage({ params }: any) {
             <div className="space-y-2 max-w-3xl">
               <h1
                 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl"
-                dangerouslySetInnerHTML={createMarkup(post.title.rendered)}
+                dangerouslySetInnerHTML={createMarkup(post?.title?.rendered)}
               />
               <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-gray-300 pt-4">
                 <div className="flex items-center">
                   <Calendar className="mr-1.5 h-4 w-4" />
-                  <span>{formatDate(post.date)}</span>
+                  <span>{formatDate(post?.date)}</span>
                 </div>
                 <div className="flex items-center">
                   <User className="mr-1.5 h-4 w-4" />
@@ -147,7 +145,6 @@ export default async function BlogPostPage({ params }: any) {
 
       {/* Blog Post Content */}
       <section className="py-12 md:py-16 lg:py-20">
-        {/* ... rest of content section ... */}
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-3xl">
             {/* Featured Image */}
@@ -171,15 +168,15 @@ export default async function BlogPostPage({ params }: any) {
             {/* Blog Content Area */}
             <article className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-parascap-darkGray prose-a:text-parascap-green hover:prose-a:underline">
               <div
-                dangerouslySetInnerHTML={createMarkup(post.content.rendered)}
+                dangerouslySetInnerHTML={createMarkup(post?.content?.rendered)}
               />
             </article>
 
             {/* Tags and Categories */}
-            {(categories.length > 0 || tags.length > 0) && (
+            {(categories?.length > 0 || tags?.length > 0) && (
               <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
                 <div className="flex flex-wrap gap-2">
-                  {categories.map((category, index) => (
+                  {categories?.map((category, index) => (
                     <Link
                       href={`/category/${category
                         .toLowerCase()
@@ -191,7 +188,7 @@ export default async function BlogPostPage({ params }: any) {
                       </span>
                     </Link>
                   ))}
-                  {tags.map((tag, index) => (
+                  {tags?.map((tag, index) => (
                     <Link
                       href={`/tag/${tag.toLowerCase().replace(/\s+/g, "-")}`}
                       key={`tag-${index}`}
@@ -209,8 +206,7 @@ export default async function BlogPostPage({ params }: any) {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-        {/* ... rest of newsletter section ... */}
+      {/* <section className="py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -234,7 +230,7 @@ export default async function BlogPostPage({ params }: any) {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

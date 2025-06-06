@@ -137,12 +137,10 @@ export default function AboutPage() {
           From Strategy To Execution
         </h1>
 
-        <h2>
-          <span className="text-[#4CAF50] text-3xl  font-extrabold">
-            Meet The Team
-          </span>
+        <h2 className="max-w-[700px] text-2xl border-white bg-parascap-green text-white px-4 md:px-6 py-2 rounded-md font-extrabold">
+          Meet The Team
         </h2>
-        <p className="text-lg text-gray-600 max-w-4xl">
+        <p className="text-lg text-gray-600 md:w-4/5 py-2">
           {`At Parascap Ventures, our team blends deep financial expertise with an
           entrepreneurial mindset. We’re more than advisors-we are strategic
           partners who roll up our sleeves and work alongside founders.
@@ -461,57 +459,58 @@ export default function AboutPage() {
               </div>
             </div>
             {/* IPO */}
-            <div className="group mx-auto grid max-w-5xl items-center gap-8 py-12 lg:grid-cols-2 lg:gap-12 border border-transparent hover:border-gray-600 rounded-lg p-6 transition duration-300 hover:bg-white/5">
-              <div className="flex justify-center">
-                <Image
-                  src="/BANSAL-LOGO-2.png"
-                  alt="Bansal Wires Logo"
-                  width={350} // Adjusted size
-                  height={350}
-                  className="mx-auto aspect-square overflow-hidden rounded-xl object-contain transition duration-300 group-hover:scale-105" // Contain logo, add hover
-                />
-              </div>
-              <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-white/10 px-3 py-1 text-sm text-white">
-                  Featured Success
+
+            <div className="group mx-auto border border-transparent max-w-5xl hover:border-gray-600 rounded-lg p-6 transition duration-300 hover:bg-white/5">
+              <div className=" grid  items-center gap-8 py-6 lg:grid-cols-2 lg:gap-12 ">
+                <div className="flex justify-center">
+                  <Image
+                    src="/BANSAL-LOGO-2.png"
+                    alt="Bansal Wires Logo"
+                    width={350} // Adjusted size
+                    height={350}
+                    className="mx-auto aspect-square overflow-hidden rounded-xl object-contain transition duration-300 group-hover:scale-105" // Contain logo, add hover
+                  />
                 </div>
-                <h3 className="text-2xl font-bold">Bansal Wires IPO</h3>
-                {/* <p className="text-gray-300">
+                <div className="space-y-4">
+                  <div className="inline-block rounded-lg bg-white/10 px-3 py-1 text-sm text-white">
+                    Featured Success
+                  </div>
+                  <h3 className="text-2xl font-bold">Bansal Wires IPO</h3>
+                  {/* <p className="text-gray-300">
                   Parascap Ventures played a strategic role in shaping the IPO
                   journey of Bansal Wires, offering financial structuring and
                   execution insights that helped the company unlock market
                   value.
                 </p> */}
 
-                <div className="space-y-4 text-gray-300">
-                  <p>
-                    Paracap Ventures played an instrumental role in the IPO
-                    journey of Bansal Wires, offering end to end support across
-                    financial structuring, regulatory guidance, investor
-                    alignment and execution.
-                  </p>
-                  <p>
-                    Our deep involvement helped unlock market value & position
-                    the company for long term growth.
-                  </p>
+                  <div className="space-y-4 text-gray-300">
+                    <p>
+                      Parascap Ventures played an instrumental role in the IPO
+                      journey of Bansal Wires, offering end to end support
+                      across financial structuring, regulatory guidance,
+                      investor alignment and execution.
+                    </p>
+                    <p>
+                      Our deep involvement helped unlock market value & position
+                      the company for long term growth.
+                    </p>
+                  </div>
                 </div>
+              </div>
 
-                <div className="mt-8 p-6 bg-[#f5f5f3] rounded-lg italic text-gray-600">
-                  <p className="">
-                    "Paracap Ventures isn't just an advisor - they were a
-                    partner from day one. Their strategic insight, market
-                    knowledge & hands on approach made all the difference in
-                    navigating our IPO successfully."
-                  </p>
-                  <p className="mt-2 font-medium">
-                    - Spokesperson, Bansal Wires
-                  </p>
-                </div>
-
-                {/* Optional Testimonial */}
-                {/* <div className="flex items-center gap-2 pt-4 border-t border-gray-600 mt-4"> ... </div> */}
+              <div className=" p-6 bg-[#f5f5f3] rounded-lg italic text-gray-600 mb-8">
+                <p className="">
+                  "Parascap Ventures isn't just an advisor - they were a partner
+                  from day one. Their strategic insight, market knowledge &
+                  hands on approach made all the difference in navigating our
+                  IPO successfully."
+                </p>
+                <p className="mt-2 font-medium flex  justify-end">
+                  - Spokesperson, Bansal Wires
+                </p>
               </div>
             </div>
+
             {/* Industries subsection */}
             <div className="mt-16">
               <h3 className="text-xl md:text-3xl font-bold mb-8 text-center">
@@ -533,11 +532,10 @@ export default function AboutPage() {
                     OUR COMMITMENT TO YOUR SUCCESS IS REFLECTED IN OUR APPROACH.
                   </p>
 
-                  {/* ////////////////////////////////////// */}
                   <div className="flex flex-col md:flex-row justify-between items-center gap-8">
                     {/* First column */}
 
-                    {/* <div>
+                    <div className="hidden md:block">
                       <Image
                         src="/placeholder.svg?height=300&width=400"
                         alt="Partnership Values"
@@ -545,61 +543,61 @@ export default function AboutPage() {
                         height={300}
                         className="rounded-lg mb-6"
                       />
-                    </div> */}
+                    </div>
 
                     {/* Middle column with table */}
-                    <div className="md:w-2/3 mx-auto">
+                    <div className="mx-auto">
                       <div className="overflow-x-auto">
-                        <table className="w-full border-collapse mx-auto text-center">
+                        <table className="w-full border-collapse mx-auto text-center ">
                           <tbody>
-                            <tr className="border-b">
-                              <td className="py-4 px-4 font-medium border-r text-center">
+                            <tr className="border-b border-white">
+                              <td className="py-4 px-4 font-medium border-r text-center border-white">
                                 Pan-India{" "}
                               </td>
                               <td className="py-4 px-12">
                                 Founder-first approach
                               </td>
                             </tr>
-                            <tr className="border-b">
-                              <td className="py-4 px-4 font-medium border-r">
+                            <tr className="border-b border-white">
+                              <td className="py-4 px-4 font-medium border-r border-white">
                                 Experience{" "}
                               </td>
                               <td className="py-4  text-center">
                                 Execution excellence{" "}
                               </td>
                             </tr>
-                            <tr className="border-b">
-                              <td className="py-4 px-4 font-medium border-r">
+                            <tr className="border-b border-white">
+                              <td className="py-4 px-4 font-medium border-r border-white">
                                 Long-Term vision
                               </td>
                               <td className="py-4 px-12">
                                 data-driven decisions{" "}
                               </td>
                             </tr>
-                            <tr className="border-b">
-                              <td className="py-4 px-4 font-medium border-r">
+                            <tr className="border-b border-white">
+                              <td className="py-4 px-4 font-medium border-r border-white">
                                 Unwavering accountability
                               </td>
                               <td className="py-4 px-12">
                                 Ownership at all levels
                               </td>
                             </tr>
-                            <tr className="border-b">
-                              <td className="py-4 px-4 font-medium border-r">
+                            <tr className="border-b border-white">
+                              <td className="py-4 px-4 font-medium border-r border-white">
                                 Unwavering accountability
                               </td>
                               <td className="py-4 px-12">
                                 Network that delivers
                               </td>
                             </tr>
-                            <tr className="border-b">
-                              <td className="py-4 px-4 font-medium border-r">
+                            <tr className="border-b border-white">
+                              <td className="py-4 px-4 font-medium border-r border-white">
                                 Implementation Focus{" "}
                               </td>
                               <td className="py-4 px-12">Hands-on support </td>
                             </tr>
                             <tr className="">
-                              <td className="py-4 px-4 font-medium border-r text-parascap-green">
+                              <td className="py-4 px-4 font-medium border-r border-white text-parascap-green">
                                 Unwavering accountability
                               </td>
                               <td className="py-4 px-4 text-parascap-green">
@@ -612,7 +610,7 @@ export default function AboutPage() {
                     </div>
 
                     {/* Third column */}
-                    {/* <div>
+                    <div className="hidden md:block">
                       <Image
                         src="/placeholder.svg?height=300&width=400"
                         alt="Partnership Values"
@@ -620,7 +618,7 @@ export default function AboutPage() {
                         height={300}
                         className="rounded-lg mb-6"
                       />
-                    </div> */}
+                    </div>
                   </div>
                 </div>
               </div>

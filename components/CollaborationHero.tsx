@@ -114,10 +114,11 @@ export default function CollaborationHero() {
           Our mission is simple, yet powerful
         </p>
 
-        <p className="text-gray-600 mb-4">
-          TO WALK WITH YOU-FROM VISION TO VALUATION, CO-CREATUNG REAL IMPACT TO
-          WALK WITH YOU-FROM VISION TO VALUATION, CO-CREATUNG REAL IMPACT EVERY
-          STEP OF THE WAY
+        {/* <p className="text-gray-600 mb-4">
+         */}
+        <p className=" md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed border border-white bg-parascap-green text-white px-4 md:px-6 py-2 rounded-lg text-center">
+          TO WALK WITH YOU &nbsp; - &nbsp; FROM VISION TO VALUATION, <br />
+          <span> CO-CREATING REAL IMPACT</span>
         </p>
 
         {/* <Link

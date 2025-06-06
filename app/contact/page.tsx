@@ -114,10 +114,10 @@ export default function ContactPage() {
                     <span className="font-medium">Email</span>
                     <br />
                     <a
-                      href="mailto:info@parascapventures.com"
+                      href="mailto:info@parascap.com"
                       className="hover:underline hover:text-parascap-green"
                     >
-                      info@parascapventures.com
+                      info@parascap.com
                     </a>
                   </div>
                 </div>

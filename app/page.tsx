@@ -173,8 +173,8 @@ export default function Home() {
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
             Vision to Valuation: Your Growth Partners
           </h1>
-          <div className="bg-parascap-green/10 backdrop-blur-sm py-3 px-6 rounded-lg inline-block mb-6">
-            <h2 className="text-xl md:text-2xl font-medium">
+          <div className="bg-parascap-green  py-3 px-6 rounded-lg inline-block mb-6">
+            <h2 className="text-xl md:text-2xl font-medium text-white">
               Navigating Capital with Confidence
             </h2>
           </div>
@@ -278,10 +278,8 @@ export default function Home() {
             </div>
 
             <div className="w-full md:w-1/3 flex items-center justify-center mb-8 md:mb-0">
-              <div className="bg-gray-50 p-8 rounded-xl shadow-md w-full max-w-md h-auto md:h-80 text-center">
-                <p className="text-gray-700 mb-6">
-                  Scan the QR code to instantly access...
-                </p>
+              <div className=" p-8 rounded-xl shadow-md w-full max-w-md h-auto md:h-80 text-center bg-parascap-green text-white">
+                <p className="mb-6">Scan the QR code to instantly access...</p>
 
                 <Image
                   src="https://img.freepik.com/free-photo/glowing-lines-human-heart-3d-illustration-generative-ai_188544-19759.jpg"
@@ -296,17 +294,37 @@ export default function Home() {
             <div className="w-full md:w-1/3  items-center justify-center hidden md:flex">
               <div className="bg-gray-50 p-8 rounded-xl shadow-md w-full max-w-md">
                 <h3 className="text-xl md:text-2xl font-bold mb-4 text-center">
-                  Is Your Business Ready?
+                  Is Your Business Investor Ready?
                 </h3>
-                <p className="text-gray-700 mb-6 text-center">
-                  Scan the QR code to instantly access...
-                </p>
-                <div className="flex items-center justify-center gap-4">
-                  <div className="w-24 h-24 bg-gray-200 flex items-center justify-center rounded-lg">
-                    <span className="text-sm text-gray-500">QR Code</span>
-                  </div>
-                  <p className="text-sm text-gray-500">Scan to access...</p>
-                </div>
+
+                <ul className="list-none pl-0 mt-4 space-y-1">
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-3 mt-0.5 flex-shrink-0">
+                      ✅
+                    </span>
+                    <span className="text-left">
+                      Instantly score your business side
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-3 mt-0.5 flex-shrink-0">
+                      ✅
+                    </span>
+
+                    <span className="text-left">
+                      Get personalized tips to improve{" "}
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-3 mt-0.5 flex-shrink-0">
+                      ✅
+                    </span>
+
+                    <span className="text-left">
+                      Perfect for founders preparing to raise capital{" "}
+                    </span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -508,7 +526,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-parascap-green md:mb-3">
               The Parascap Edge
             </h2>
-            <p className="max-w-[700px] text-gray-800 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed border border-parascap-green px-4 md:px-6 py-2 rounded-lg">
+            <p className="max-w-[700px]  md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed border border-white bg-parascap-green text-white px-4 md:px-6 py-2 rounded-lg">
               <span>STRATEGIC - SECTOR</span>
 
               <span className="ml-5">AGNOSTIC - EXECUTION DRIVEN</span>
